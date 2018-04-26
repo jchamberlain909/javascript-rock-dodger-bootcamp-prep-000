@@ -69,6 +69,8 @@ function createRock(x) {
 
    GAME.appendChild(rock);
 
+   moveRock();
+
 
   /**
    * This function moves the rock. (2 pixels at a time
@@ -82,10 +84,25 @@ function createRock(x) {
      * we should call endGame()
      */
 
+     top+=2;
+
+     rock.style.top=`${top}px`;
+
+     if(checkCollision(rock)){
+       endGame();
+     }
+
+
     /**
      * Otherwise, if the rock hasn't reached the bottom of
      * the GAME, we want to move it again.
      */
+     if(top===400){
+
+     }
+     else{
+       window.requestAnimationFrame(moveRock);
+     }
 
     /**
      * But if the rock *has* reached the bottom of the GAME,
@@ -94,6 +111,8 @@ function createRock(x) {
   }
 
   // We should kick of the animation of the rock around here
+  window.requestAnimationFrame(moveRock);
+
 
   // Add the rock to ROCKS so that we can remove all rocks
   // when there's a collision
