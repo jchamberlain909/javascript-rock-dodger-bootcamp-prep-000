@@ -97,7 +97,7 @@ function createRock(x) {
      * Otherwise, if the rock hasn't reached the bottom of
      * the GAME, we want to move it again.
      */
-     if(top===400){
+     if(top>=400){
        rock.remove();
      }
      else{
@@ -135,7 +135,7 @@ function endGame() {
   ROCKS.forEach((r)=> {r.remove()});
   window.removeEventListener('keydown', moveDodger);
   //alert("YOU LOSE!");
-  
+
 }
 
 function moveDodger(e) {
