@@ -154,7 +154,7 @@ function moveDodger(e) {
      moveDodgerRight();
    }
    else {
-
+     e.stopPropagation();
    }
 
 }
